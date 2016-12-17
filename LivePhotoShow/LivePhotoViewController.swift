@@ -8,6 +8,8 @@ class LivePhotoViewController: UIViewController, PHLivePhotoViewDelegate {
     private var unplayedAssets: [PHAsset]
 
     let livephotoView: PHLivePhotoView
+    let snapshotView1 = UIImageView()
+    let snapshotView2 = UIImageView()
 
     public init(livephotoAssets: [PHAsset]) {
         self.livephotoAssets = livephotoAssets
@@ -26,9 +28,19 @@ class LivePhotoViewController: UIViewController, PHLivePhotoViewDelegate {
 
         view.backgroundColor = .black
 
-        let autolayout = northLayoutFormat([:], ["livephoto": livephotoView])
+        let autolayout = northLayoutFormat([:], [
+            "livephoto": livephotoView,
+            "snapshotView1": snapshotView1,
+            "snapshotView2": snapshotView2,
+            ])
         autolayout("H:|[livephoto]|")
         autolayout("V:|[livephoto]|")
+        autolayout("H:|[snapshotView1]|")
+        autolayout("V:|[snapshotView1]|")
+        autolayout("H:|[snapshotView2]|")
+        autolayout("V:|[snapshotView2]|")
+        view.bringSubview(toFront: snapshotView1)
+        view.bringSubview(toFront: snapshotView2)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -41,21 +53,40 @@ class LivePhotoViewController: UIViewController, PHLivePhotoViewDelegate {
         guard let asset = unplayedAssets.first else { return }
         unplayedAssets.removeFirst()
 
-        PHImageManager.default().requestLivePhoto(for: asset, targetSize: view.bounds.size, contentMode: .aspectFill, options: nil) { photo, d in
-            DispatchQueue.main.async {
-                if let snapshotView = self.livephotoView.snapshotView(afterScreenUpdates: false) {
-                    snapshotView.frame = self.livephotoView.frame
-                    self.view.addSubview(snapshotView)
-                    UIView.animate(withDuration: 0.5, animations: {
-                        snapshotView.alpha = 0.0
-                    }) { finished in
-                        snapshotView.removeFromSuperview()
-                    }
-                }
-                self.livephotoView.livePhoto = photo
+        let opt1 = PHImageRequestOptions()
+        opt1.deliveryMode = .highQualityFormat
+        opt1.isNetworkAccessAllowed = true
+//        opt1.isSynchronous = true
 
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    self.livephotoView.startPlayback(with: .full)
+        PHImageManager.default().requestImage(for: asset, targetSize: view.bounds.size, contentMode: .aspectFill, options: opt1) { image, d in
+
+            PHImageManager.default().requestLivePhoto(for: asset, targetSize: self.view.bounds.size, contentMode: .aspectFill, options: nil) { photo, d in
+                DispatchQueue.main.async {
+//                    self.snapshotView1.image = self.snapshotView2.image
+                    self.snapshotView2.image = image
+                    self.snapshotView2.alpha = 0
+
+//                    self.snapshotView1.isHidden = false
+                    self.snapshotView2.isHidden = false
+//                    self.view.bringSubview(toFront: self.snapshotView2)
+
+                    NSLog("%@", "\(self.snapshotView1.image?.size), \(self.snapshotView2.image?.size)")
+
+                    DispatchQueue.main.async {
+                        UIView.animate(withDuration: 0.5, delay: 0.1, options: [], animations: {
+                            self.snapshotView2.alpha = 0.5
+                        }) { finished in
+//                            self.livephotoView.isHidden = false
+//                            self.snapshotView1.isHidden = true
+                            self.snapshotView2.isHidden = true
+
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                self.livephotoView.livePhoto = photo
+//                                self.livephotoView.isHidden = false
+                                self.livephotoView.startPlayback(with: .full)
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -69,7 +100,7 @@ class LivePhotoViewController: UIViewController, PHLivePhotoViewDelegate {
 
     public func livePhotoView(_ livePhotoView: PHLivePhotoView, didEndPlaybackWith playbackStyle: PHLivePhotoViewPlaybackStyle) {
         DispatchQueue.main.async {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 self.showNext()
             }
         }
