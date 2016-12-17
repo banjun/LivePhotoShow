@@ -12,6 +12,7 @@
 		EAEC0D481E04DB4600304E4E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEC0D471E04DB4600304E4E /* ViewController.swift */; };
 		EAEC0D4D1E04DB4600304E4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAEC0D4C1E04DB4600304E4E /* Assets.xcassets */; };
 		EAEC0D501E04DB4600304E4E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAEC0D4E1E04DB4600304E4E /* LaunchScreen.storyboard */; };
+		EAEC0D611E05089700304E4E /* LivePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEC0D601E05089700304E4E /* LivePhotoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		EAEC0D4C1E04DB4600304E4E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EAEC0D4F1E04DB4600304E4E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EAEC0D511E04DB4600304E4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EAEC0D601E05089700304E4E /* LivePhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LivePhotoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 			children = (
 				EAEC0D451E04DB4600304E4E /* AppDelegate.swift */,
 				EAEC0D471E04DB4600304E4E /* ViewController.swift */,
+				EAEC0D601E05089700304E4E /* LivePhotoViewController.swift */,
 				EAEC0D4C1E04DB4600304E4E /* Assets.xcassets */,
 				EAEC0D4E1E04DB4600304E4E /* LaunchScreen.storyboard */,
 				EAEC0D511E04DB4600304E4E /* Info.plist */,
@@ -208,6 +211,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAEC0D611E05089700304E4E /* LivePhotoViewController.swift in Sources */,
 				EAEC0D481E04DB4600304E4E /* ViewController.swift in Sources */,
 				EAEC0D461E04DB4600304E4E /* AppDelegate.swift in Sources */,
 			);

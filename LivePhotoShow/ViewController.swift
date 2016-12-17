@@ -1,6 +1,5 @@
 import UIKit
 import Photos
-import PhotosUI
 import NorthLayout
 import Ikemen
 
@@ -13,7 +12,10 @@ class ViewController: UIViewController {
         l.text = "(fetching...)"
         l.textAlignment = .center
     }
-    private lazy var livePhotoView: PHLivePhotoView = PHLivePhotoView()
+    private lazy var livePhotoButton: UIButton = UIButton(type: .system) ※ { b in
+        b.setTitle("Show Live Photos", for: .normal)
+        b.addTarget(self, action: #selector(showLivePhotos), for: .touchUpInside)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,12 +26,14 @@ class ViewController: UIViewController {
         let autolayout = northLayoutFormat([:], [
             "countTitle": countTitleLabel,
             "count": countLabel,
-            "livephoto": livePhotoView])
+            "livephoto": livePhotoButton])
         autolayout("H:|[countTitle]|")
         autolayout("H:|[count]|")
         autolayout("H:|[livephoto]|")
-        autolayout("V:|-[countTitle]-[count]-[livephoto]|")
+        autolayout("V:|-[countTitle]-[count]-[livephoto]")
     }
+
+    var livephotoAssets: [PHAsset] = []
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -41,13 +45,12 @@ class ViewController: UIViewController {
         countLabel.text = "\(result.count) live photos"
 
         let shuffledAssets = shuffled(result.objects(at: IndexSet(integersIn: 0..<result.count)))
-        guard let asset = shuffledAssets.first else { return }
-        PHImageManager.default().requestLivePhoto(for: asset, targetSize: view.bounds.size, contentMode: .aspectFill, options: nil) { photo, d in
-            DispatchQueue.main.async {
-                self.livePhotoView.livePhoto = photo
-                self.livePhotoView.startPlayback(with: .full)
-            }
-        }
+        livephotoAssets = shuffledAssets
+    }
+
+    @objc private func showLivePhotos() {
+        let lpvc = LivePhotoViewController(livephotoAssets: livephotoAssets)
+        show(lpvc, sender: nil)
     }
 }
 
