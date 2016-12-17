@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		EAEC0D461E04DB4600304E4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEC0D451E04DB4600304E4E /* AppDelegate.swift */; };
 		EAEC0D481E04DB4600304E4E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEC0D471E04DB4600304E4E /* ViewController.swift */; };
-		EAEC0D4B1E04DB4600304E4E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAEC0D491E04DB4600304E4E /* Main.storyboard */; };
 		EAEC0D4D1E04DB4600304E4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAEC0D4C1E04DB4600304E4E /* Assets.xcassets */; };
 		EAEC0D501E04DB4600304E4E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAEC0D4E1E04DB4600304E4E /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -18,7 +17,6 @@
 		EAEC0D421E04DB4600304E4E /* LivePhotoShow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LivePhotoShow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAEC0D451E04DB4600304E4E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAEC0D471E04DB4600304E4E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		EAEC0D4A1E04DB4600304E4E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EAEC0D4C1E04DB4600304E4E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EAEC0D4F1E04DB4600304E4E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EAEC0D511E04DB4600304E4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,7 +54,6 @@
 			children = (
 				EAEC0D451E04DB4600304E4E /* AppDelegate.swift */,
 				EAEC0D471E04DB4600304E4E /* ViewController.swift */,
-				EAEC0D491E04DB4600304E4E /* Main.storyboard */,
 				EAEC0D4C1E04DB4600304E4E /* Assets.xcassets */,
 				EAEC0D4E1E04DB4600304E4E /* LaunchScreen.storyboard */,
 				EAEC0D511E04DB4600304E4E /* Info.plist */,
@@ -96,6 +93,7 @@
 				TargetAttributes = {
 					EAEC0D411E04DB4500304E4E = {
 						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = FPZK4WRGW7;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -125,7 +123,6 @@
 			files = (
 				EAEC0D501E04DB4600304E4E /* LaunchScreen.storyboard in Resources */,
 				EAEC0D4D1E04DB4600304E4E /* Assets.xcassets in Resources */,
-				EAEC0D4B1E04DB4600304E4E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,14 +141,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		EAEC0D491E04DB4600304E4E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EAEC0D4A1E04DB4600304E4E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		EAEC0D4E1E04DB4600304E4E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -260,6 +249,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = FPZK4WRGW7;
 				INFOPLIST_FILE = LivePhotoShow/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.banjun.LivePhotoShow;
@@ -272,6 +262,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = FPZK4WRGW7;
 				INFOPLIST_FILE = LivePhotoShow/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.banjun.LivePhotoShow;

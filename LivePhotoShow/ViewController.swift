@@ -1,25 +1,19 @@
-//
-//  ViewController.swift
-//  LivePhotoShow
-//
-//  Created by BAN Jun on 2016/12/17.
-//  Copyright © 2016 BAN Jun. All rights reserved.
-//
-
 import UIKit
+import Photos
 
 class ViewController: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        view.backgroundColor = .white
+
+
+        let lib = PHPhotoLibrary.shared()
+
+        var options = PHFetchOptions()
+        options.predicate = NSPredicate(format: "(mediaSubtype & %d) > 0", PHAssetMediaSubtype.photoLive.rawValue)
+        let result = PHAsset.fetchAssets(with: .image, options: options)
+        NSLog("%@", "count = \(result.count)")
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
 
