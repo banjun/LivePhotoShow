@@ -43,6 +43,15 @@ class LivePhotoViewController: UIViewController, PHLivePhotoViewDelegate {
 
         PHImageManager.default().requestLivePhoto(for: asset, targetSize: view.bounds.size, contentMode: .aspectFill, options: nil) { photo, d in
             DispatchQueue.main.async {
+                if let snapshotView = self.livephotoView.snapshotView(afterScreenUpdates: false) {
+                    snapshotView.frame = self.livephotoView.frame
+                    self.view.addSubview(snapshotView)
+                    UIView.animate(withDuration: 0.5, animations: {
+                        snapshotView.alpha = 0.0
+                    }) { finished in
+                        snapshotView.removeFromSuperview()
+                    }
+                }
                 self.livephotoView.livePhoto = photo
 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
