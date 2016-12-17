@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E819AE2A6E5C0A9E1AB9206 /* Pods_LivePhotoShow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DED928408216CA15FA880BD /* Pods_LivePhotoShow.framework */; };
 		EAEC0D461E04DB4600304E4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEC0D451E04DB4600304E4E /* AppDelegate.swift */; };
 		EAEC0D481E04DB4600304E4E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEC0D471E04DB4600304E4E /* ViewController.swift */; };
 		EAEC0D4D1E04DB4600304E4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAEC0D4C1E04DB4600304E4E /* Assets.xcassets */; };
@@ -14,6 +15,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2DED928408216CA15FA880BD /* Pods_LivePhotoShow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LivePhotoShow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		90CE0E62E8F4050007CA78DD /* Pods-LivePhotoShow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LivePhotoShow.release.xcconfig"; path = "Pods/Target Support Files/Pods-LivePhotoShow/Pods-LivePhotoShow.release.xcconfig"; sourceTree = "<group>"; };
+		D872F6F605F4430B2DB8F962 /* Pods-LivePhotoShow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LivePhotoShow.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LivePhotoShow/Pods-LivePhotoShow.debug.xcconfig"; sourceTree = "<group>"; };
 		EAEC0D421E04DB4600304E4E /* LivePhotoShow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LivePhotoShow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAEC0D451E04DB4600304E4E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAEC0D471E04DB4600304E4E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -27,17 +31,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E819AE2A6E5C0A9E1AB9206 /* Pods_LivePhotoShow.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		61E1A048C6F3BF10D0694A40 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D872F6F605F4430B2DB8F962 /* Pods-LivePhotoShow.debug.xcconfig */,
+				90CE0E62E8F4050007CA78DD /* Pods-LivePhotoShow.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B096B04EB830CDC3E64932D5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2DED928408216CA15FA880BD /* Pods_LivePhotoShow.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EAEC0D391E04DB4500304E4E = {
 			isa = PBXGroup;
 			children = (
 				EAEC0D441E04DB4600304E4E /* LivePhotoShow */,
 				EAEC0D431E04DB4600304E4E /* Products */,
+				61E1A048C6F3BF10D0694A40 /* Pods */,
+				B096B04EB830CDC3E64932D5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -68,9 +92,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EAEC0D541E04DB4600304E4E /* Build configuration list for PBXNativeTarget "LivePhotoShow" */;
 			buildPhases = (
+				B60120C633D426EBAECABD35 /* [CP] Check Pods Manifest.lock */,
 				EAEC0D3E1E04DB4500304E4E /* Sources */,
 				EAEC0D3F1E04DB4500304E4E /* Frameworks */,
 				EAEC0D401E04DB4500304E4E /* Resources */,
+				FEB4B90AC5556A36542E7E07 /* [CP] Embed Pods Frameworks */,
+				541CB5AD79A1E8314835AD8F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -127,6 +154,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		541CB5AD79A1E8314835AD8F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LivePhotoShow/Pods-LivePhotoShow-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B60120C633D426EBAECABD35 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FEB4B90AC5556A36542E7E07 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LivePhotoShow/Pods-LivePhotoShow-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EAEC0D3E1E04DB4500304E4E /* Sources */ = {
@@ -247,6 +322,7 @@
 		};
 		EAEC0D551E04DB4600304E4E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D872F6F605F4430B2DB8F962 /* Pods-LivePhotoShow.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = FPZK4WRGW7;
@@ -260,6 +336,7 @@
 		};
 		EAEC0D561E04DB4600304E4E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90CE0E62E8F4050007CA78DD /* Pods-LivePhotoShow.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = FPZK4WRGW7;
